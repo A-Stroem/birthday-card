@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday!</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container1 gradient-background">
+      <!-- Main Container -->
+      <div class="container text-center mt-5">
+        <h1 class="display-4">🎉 Happy Birthday, Friends! 🎉</h1>
+        <p class="lead">Wishing you both a fantastic birthday!</p>
+
+        <!-- Image Row -->
+        <div class="row mt-4">
+          <!-- First Person -->
+          <div class="col-md-6 col-sm-12">
+            <img
+              src="./Assets/malte.jpg"
+              class="rounded-circle mb-2"
+              alt="Birthday Person 1"
+              height="300px"
+            />
+            <h3>Malte</h3>
+          </div>
+          <!-- Second Person -->
+          <div class="col-md-6 col-sm-12">
+            <img
+              src="./Assets/rikke.jpg"
+              class="rounded-circle mb-2"
+              alt="Birthday Person 2"
+              height="300px"
+            />
+            <h3>Rikke</h3>
+          </div>
+        </div>
+
+        <!-- Button to play the song -->
+        <button id="play-button" class="btn btn-primary mt-4">
+          Play Birthday Song
+        </button>
+      </div>
+
+      <!-- Confetti Canvas -->
+      <canvas id="confetti-canvas"></canvas>
+
+      <!-- Birthday Song Audio -->
+      <audio
+        id="birthday-song"
+        src="./Assets/Tommy Seebach - Hip hurra, det' min fødselsdag (Official Audio).mp3"
+        preload="auto"
+      ></audio>
+    </div>
+    <!-- Bootstrap JS & Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <!-- Custom JS -->
+    <script src="scripts.js"></script>
+  </body>
+</html>
