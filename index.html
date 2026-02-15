@@ -17,41 +17,73 @@
 <body>
   <!-- Main Container -->
   <main class="birthday-card">
+    <div class="card-stage">
+      <div class="card-book" id="cardBook">
+        <!-- Hero Section -->
+        <section class="hero card-inside" id="cardInside">
+          <!-- Norwegian Greeting (conditionally shown) -->
+          <div class="norwegian-greeting" id="norwegianGreeting"></div>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-      <!-- Norwegian Greeting (conditionally shown) -->
-      <div class="norwegian-greeting" id="norwegianGreeting"></div>
+          <!-- Name Display -->
+          <h1 class="name" id="name"></h1>
 
-      <!-- Name Display -->
-      <h1 class="name" id="name"></h1>
+          <!-- Age with 25th Milestone Badge -->
+          <div class="age-container">
+            <div class="age" id="age"></div>
+            <div class="milestone-badge" id="milestoneBadge"></div>
+          </div>
 
-      <!-- Age with 25th Milestone Badge -->
-      <div class="age-container">
-        <div class="age" id="age"></div>
-        <div class="milestone-badge" id="milestoneBadge"></div>
-      </div>
+          <!-- Photo -->
+          <div class="photo-container">
+            <div class="photo-frame">
+              <img id="photo" class="photo" alt="Birthday celebration photo" />
+              <div class="photo-skeleton" id="photoSkeleton"></div>
+              <div class="photo-error" id="photoError"></div>
+            </div>
+          </div>
 
-      <!-- Photo -->
-      <div class="photo-container">
-        <div class="photo-frame">
-          <img id="photo" class="photo" alt="Birthday celebration photo" />
-          <div class="photo-skeleton" id="photoSkeleton"></div>
-          <div class="photo-error" id="photoError"></div>
-        </div>
-      </div>
+          <!-- Birthday Message -->
+          <p class="message" id="message"></p>
 
-      <!-- Birthday Message -->
-      <p class="message" id="message"></p>
+          <!-- Inside Note (from config.js) -->
+          <div class="inside-note">
+            <p class="inside-note-text" id="insideNote"></p>
+          </div>
 
-      <!-- Audio Player (conditionally shown) -->
-      <div class="audio-player" id="audioPlayer">
-        <button class="audio-button" id="audioButton" aria-label="Play birthday music">
-          <span class="audio-icon" aria-hidden="true">♫</span>
-          <span class="audio-label" id="audioLabel"></span>
+          <!-- Audio Player (conditionally shown) -->
+          <div class="audio-player" id="audioPlayer">
+            <button class="audio-button" id="audioButton" aria-label="Play birthday music">
+              <span class="audio-icon" aria-hidden="true">♫</span>
+              <span class="audio-label" id="audioLabel"></span>
+            </button>
+          </div>
+        </section>
+
+        <button
+          class="card-cover"
+          id="cardCover"
+          type="button"
+          aria-controls="cardInside"
+          aria-label="Open birthday card"
+        >
+          <span class="cover-title">Happy Birthday</span>
+          <span class="cover-subtitle" id="coverName"></span>
+          <span class="cover-hint">Tap to open</span>
         </button>
       </div>
-    </section>
+
+      <div class="card-actions">
+        <button
+          class="card-toggle-button"
+          id="cardToggleButton"
+          type="button"
+          aria-controls="cardInside"
+          aria-expanded="false"
+        >
+          Open Card
+        </button>
+      </div>
+    </div>
 
     <!-- Confetti Canvas -->
     <canvas class="confetti-canvas" id="confettiCanvas" aria-hidden="true">

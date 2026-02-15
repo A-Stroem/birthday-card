@@ -61,7 +61,10 @@ html {
 body {
     font-family: var(--font-body);
     color: var(--color-text);
-    background-color: var(--color-background);
+    background:
+        radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.2), transparent 40%),
+        radial-gradient(circle at 85% 15%, rgba(232, 180, 184, 0.2), transparent 35%),
+        linear-gradient(180deg, #fffaf2 0%, var(--color-background) 45%, #fff7fb 100%);
     line-height: 1.6;
     min-height: 100vh;
     overflow-x: hidden;
@@ -72,17 +75,113 @@ body {
    ============================================ */
 
 .birthday-card {
-    max-width: 600px;
-    margin: var(--spacing-md) auto;
+    width: min(100%, 760px);
+    margin: var(--spacing-md) auto var(--spacing-xl);
     padding: var(--spacing-md);
-    background: var(--color-background);
-    border-radius: var(--radius-lg);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: box-shadow var(--duration-normal) ease;
 }
 
-.birthday-card:hover {
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+.card-stage {
+    perspective: 1800px;
+    margin-bottom: var(--spacing-lg);
+}
+
+.card-book {
+    position: relative;
+    border-radius: var(--radius-lg);
+    min-height: 780px;
+    transform-style: preserve-3d;
+    box-shadow:
+        0 24px 40px rgba(44, 62, 80, 0.18),
+        0 0 0 1px rgba(255, 255, 255, 0.65) inset;
+}
+
+.card-cover {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    border: 0;
+    border-radius: var(--radius-lg);
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+    transition: transform 7000ms cubic-bezier(0.14, 0.84, 0.18, 1);
+    cursor: pointer;
+    color: var(--color-background);
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.18), transparent 50%),
+        linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    overflow: hidden;
+    backface-visibility: hidden;
+}
+
+.card-cover::before {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    border-radius: calc(var(--radius-lg) - 8px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+}
+
+.cover-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.cover-subtitle {
+    font-family: var(--font-heading);
+    font-size: clamp(1.3rem, 3vw, 1.9rem);
+    font-weight: 600;
+    opacity: 0.95;
+}
+
+.cover-hint {
+    font-size: 0.95rem;
+    padding: 0.25rem 0.9rem;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: opacity 260ms ease;
+}
+
+.card-book.is-open .card-cover {
+    transform: rotateY(-165deg);
+    pointer-events: none;
+}
+
+.card-book.is-open .cover-hint {
+    opacity: 0;
+}
+
+.card-actions {
+    text-align: center;
+    margin-top: var(--spacing-md);
+}
+
+.card-toggle-button {
+    border: 0;
+    border-radius: var(--radius-full);
+    background: var(--color-secondary);
+    color: #fff;
+    padding: 0.65rem 1.4rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: transform var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
+    box-shadow: 0 8px 16px rgba(44, 62, 80, 0.22);
+}
+
+.card-toggle-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px rgba(44, 62, 80, 0.28);
 }
 
 /* ============================================
@@ -91,12 +190,17 @@ body {
 
 .hero {
     text-align: center;
-    padding: var(--spacing-lg) 0;
+    padding: var(--spacing-xl) var(--spacing-md);
     background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-    border-radius: var(--radius-md);
-    margin-bottom: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    margin-bottom: 0;
     position: relative;
     overflow: hidden;
+    min-height: 780px;
+}
+
+.card-inside {
+    z-index: 1;
 }
 
 .hero::before {
@@ -126,6 +230,7 @@ body {
    ============================================ */
 
 .norwegian-greeting {
+    display: none;
     font-family: var(--font-heading);
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
@@ -134,6 +239,16 @@ body {
     margin-bottom: var(--spacing-sm);
     position: relative;
     z-index: 1;
+}
+
+.norwegian-greeting.show {
+    display: block;
+}
+
+.norwegian-greeting.show::before {
+    content: '🇳🇴';
+    margin-right: var(--spacing-xs);
+    font-size: 1.2em;
 }
 
 .name {
@@ -166,6 +281,7 @@ body {
 }
 
 .milestone-badge {
+    display: none;
     background: var(--color-background);
     color: var(--color-primary);
     padding: var(--spacing-xs) var(--spacing-sm);
@@ -173,15 +289,19 @@ body {
     font-size: clamp(0.875rem, 2vw, 1rem);
     font-weight: 600;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    animation: pulse 2s ease-in-out infinite;
 }
 
-@keyframes pulse {
+.milestone-badge.show {
+    display: inline-block;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
     0%, 100% {
-        transform: scale(1);
+        box-shadow: 0 0 8px rgba(212, 175, 55, 0.35);
     }
     50% {
-        transform: scale(1.05);
+        box-shadow: 0 0 16px rgba(212, 175, 55, 0.7);
     }
 }
 
@@ -189,9 +309,47 @@ body {
     font-family: var(--font-body);
     font-size: clamp(1rem, 2.5vw, 1.25rem);
     line-height: 1.8;
-    color: var(--color-text);
-    margin-bottom: var(--spacing-lg);
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: var(--spacing-md);
     padding: 0 var(--spacing-sm);
+    white-space: pre-line;
+    transition: text-shadow var(--duration-normal) ease;
+    position: relative;
+    z-index: 1;
+}
+
+.message:hover {
+    text-shadow: 0 0 22px rgba(255, 255, 255, 0.35);
+}
+
+.inside-note {
+    margin: 0 auto var(--spacing-lg);
+    width: min(92%, 520px);
+    text-align: left;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid rgba(44, 62, 80, 0.14);
+    box-shadow: 0 8px 20px rgba(31, 41, 55, 0.12);
+    position: relative;
+    z-index: 1;
+}
+
+.inside-note-label {
+    display: block;
+    color: var(--color-secondary);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.inside-note-text {
+    margin-top: 0.45rem;
+    min-height: 2.25rem;
+    color: var(--color-text);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    line-height: 1.7;
+    font-style: italic;
     white-space: pre-line;
 }
 
@@ -225,15 +383,30 @@ body {
     max-height: 500px;
     object-fit: cover;
     border-radius: var(--radius-md);
+    opacity: 0;
+    transition: opacity var(--duration-normal) ease;
+}
+
+.photo.loaded {
+    opacity: 1;
+}
+
+.photo.hidden {
+    display: none;
 }
 
 .photo-skeleton {
+    display: none;
     width: 100%;
     height: 400px;
     background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
     background-size: 200% 100%;
     animation: skeleton-loading 1.5s ease-in-out infinite;
     border-radius: var(--radius-md);
+}
+
+.photo-skeleton.show {
+    display: block;
 }
 
 @keyframes skeleton-loading {
@@ -246,12 +419,25 @@ body {
 }
 
 .photo-error {
+    display: none;
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
     padding: var(--spacing-lg);
-    background: #fff3cd;
-    color: #856404;
-    border: 1px solid #ffeaa7;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--color-secondary);
+    border: 2px dashed rgba(44, 62, 80, 0.3);
     border-radius: var(--radius-sm);
     text-align: center;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 8vw, 3rem);
+    font-weight: 700;
+}
+
+.photo-error.show {
+    display: flex;
 }
 
 /* ============================================
@@ -259,8 +445,15 @@ body {
    ============================================ */
 
 .audio-player {
+    display: none;
     text-align: center;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.audio-player.show {
+    display: block;
 }
 
 .audio-button {
@@ -302,12 +495,25 @@ body {
     animation: audioPlaying 1s ease-in-out infinite;
 }
 
+.audio-button.playing .audio-icon {
+    animation: iconPulse 1s ease-in-out infinite;
+}
+
 @keyframes audioPlaying {
     0%, 100% {
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     50% {
         box-shadow: 0 6px 12px var(--color-primary);
+    }
+}
+
+@keyframes iconPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
     }
 }
 
@@ -322,7 +528,7 @@ body {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 9999;
+    z-index: 5;
 }
 
 /* ============================================
@@ -330,6 +536,13 @@ body {
    ============================================ */
 
 .error-display {
+    display: none;
+    position: fixed;
+    top: var(--spacing-md);
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(92%, 560px);
+    z-index: 1000;
     background: #fee;
     border: 1px solid var(--color-error);
     border-radius: var(--radius-sm);
@@ -337,7 +550,34 @@ body {
     margin-bottom: var(--spacing-lg);
     color: var(--color-error);
     font-weight: 600;
-    text-align: center;
+    text-align: left;
+}
+
+.error-display.show {
+    display: block;
+}
+
+.error-display h3 {
+    margin-bottom: var(--spacing-xs);
+}
+
+.error-display p {
+    margin-bottom: var(--spacing-xs);
+}
+
+/* ============================================
+   SCROLL ANIMATIONS
+   ============================================ */
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity var(--duration-slow) ease, transform var(--duration-slow) ease;
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* ============================================
@@ -348,11 +588,15 @@ body {
 @media (min-width: 768px) {
     .birthday-card {
         margin: var(--spacing-xl) auto;
-        padding: var(--spacing-xl);
+        padding: 0;
+    }
+
+    .card-book {
+        min-height: 820px;
     }
 
     .hero {
-        padding: var(--spacing-xl) 0;
+        padding: var(--spacing-xl) var(--spacing-lg);
     }
 
     .message {
@@ -362,11 +606,6 @@ body {
 
 /* Desktop and larger */
 @media (min-width: 1024px) {
-    .birthday-card {
-        margin: var(--spacing-xl) auto;
-        padding: var(--spacing-xl);
-    }
-
     .photo {
         max-height: 600px;
     }
@@ -391,6 +630,12 @@ body {
 .audio-button:focus-visible {
     outline: 3px solid var(--color-primary);
     outline-offset: 2px;
+}
+
+.card-cover:focus-visible,
+.card-toggle-button:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
 }
 
 /* High contrast mode support */
