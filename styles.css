@@ -584,6 +584,45 @@ body {
    RESPONSIVE DESIGN
    ============================================ */
 
+/* Mobile: keep closed cover on one screen */
+@media (max-width: 767px) {
+    .birthday-card {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0.5rem;
+    }
+
+    .card-stage {
+        margin-bottom: 0;
+    }
+
+    .card-book {
+        height: calc(100svh - 1rem);
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .hero {
+        min-height: 100%;
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+
+    .card-actions {
+        display: none;
+    }
+
+    .card-book.is-open {
+        height: auto;
+        min-height: 0;
+        overflow: visible;
+    }
+
+    .card-book.is-open + .card-actions {
+        display: block;
+        margin-top: var(--spacing-sm);
+    }
+}
+
 /* Tablet and larger */
 @media (min-width: 768px) {
     .birthday-card {
