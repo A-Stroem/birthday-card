@@ -60,8 +60,8 @@ html {
 
 body {
     font-family: var(--font-body);
-    color: var(--color-text-primary);
-    background-color: var(--color-bg);
+    color: var(--color-text);
+    background-color: var(--color-background);
     line-height: 1.6;
     min-height: 100vh;
     overflow-x: hidden;
@@ -75,14 +75,14 @@ body {
     max-width: 600px;
     margin: var(--spacing-md) auto;
     padding: var(--spacing-md);
-    background: var(--color-card-bg);
+    background: var(--color-background);
     border-radius: var(--radius-lg);
-    box-shadow: 0 4px 6px var(--color-shadow);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: box-shadow var(--duration-normal) ease;
 }
 
 .birthday-card:hover {
-    box-shadow: 0 8px 12px var(--color-shadow-hover);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* ============================================
@@ -129,7 +129,7 @@ body {
     font-family: var(--font-heading);
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
-    color: var(--color-card-bg);
+    color: var(--color-background);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     margin-bottom: var(--spacing-sm);
     position: relative;
@@ -140,7 +140,7 @@ body {
     font-family: var(--font-heading);
     font-size: clamp(1.5rem, 4vw, 2rem);
     font-weight: 600;
-    color: var(--color-card-bg);
+    color: var(--color-background);
     margin-bottom: var(--spacing-md);
     position: relative;
     z-index: 1;
@@ -160,13 +160,13 @@ body {
     font-family: var(--font-heading);
     font-size: clamp(3rem, 8vw, 5rem);
     font-weight: 700;
-    color: var(--color-card-bg);
+    color: var(--color-background);
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
     line-height: 1;
 }
 
 .milestone-badge {
-    background: var(--color-card-bg);
+    background: var(--color-background);
     color: var(--color-primary);
     padding: var(--spacing-xs) var(--spacing-sm);
     border-radius: var(--radius-sm);
@@ -189,7 +189,7 @@ body {
     font-family: var(--font-body);
     font-size: clamp(1rem, 2.5vw, 1.25rem);
     line-height: 1.8;
-    color: var(--color-text-primary);
+    color: var(--color-text);
     margin-bottom: var(--spacing-lg);
     padding: 0 var(--spacing-sm);
     white-space: pre-line;
@@ -210,7 +210,7 @@ body {
     max-width: 100%;
     border-radius: var(--radius-md);
     overflow: hidden;
-    box-shadow: 0 4px 8px var(--color-shadow);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform var(--duration-normal) ease;
 }
 
@@ -265,7 +265,7 @@ body {
 
 .audio-button {
     background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-    color: var(--color-card-bg);
+    color: var(--color-background);
     border: none;
     padding: var(--spacing-sm) var(--spacing-lg);
     font-size: 1rem;
@@ -273,7 +273,7 @@ body {
     border-radius: var(--radius-full);
     cursor: pointer;
     transition: all var(--duration-normal) ease;
-    box-shadow: 0 4px 6px var(--color-shadow);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     min-width: 120px;
     min-height: 44px;
     display: inline-flex;
@@ -284,12 +284,12 @@ body {
 
 .audio-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 8px var(--color-shadow-hover);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
 .audio-button:active {
     transform: translateY(0);
-    box-shadow: 0 2px 4px var(--color-shadow);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .audio-button:disabled {
@@ -304,7 +304,7 @@ body {
 
 @keyframes audioPlaying {
     0%, 100% {
-        box-shadow: 0 4px 6px var(--color-shadow);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     50% {
         box-shadow: 0 6px 12px var(--color-primary);
@@ -396,10 +396,10 @@ body {
 /* High contrast mode support */
 @media (prefers-contrast: high) {
     .birthday-card {
-        border: 2px solid var(--color-text-primary);
+        border: 2px solid var(--color-text);
     }
 
     .audio-button {
-        border: 2px solid var(--color-card-bg);
+        border: 2px solid var(--color-background);
     }
 }
