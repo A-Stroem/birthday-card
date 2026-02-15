@@ -35,7 +35,7 @@
       <!-- Photo -->
       <div class="photo-container">
         <div class="photo-frame">
-          <img id="photo" class="photo" alt="" />
+          <img id="photo" class="photo" alt="Birthday celebration photo" />
           <div class="photo-skeleton" id="photoSkeleton"></div>
           <div class="photo-error" id="photoError"></div>
         </div>
@@ -46,15 +46,17 @@
 
       <!-- Audio Player (conditionally shown) -->
       <div class="audio-player" id="audioPlayer">
-        <button class="audio-button" id="audioButton">
-          <span class="audio-icon">♫</span>
+        <button class="audio-button" id="audioButton" aria-label="Play birthday music">
+          <span class="audio-icon" aria-hidden="true">♫</span>
           <span class="audio-label" id="audioLabel"></span>
         </button>
       </div>
     </section>
 
     <!-- Confetti Canvas -->
-    <canvas class="confetti-canvas" id="confettiCanvas"></canvas>
+    <canvas class="confetti-canvas" id="confettiCanvas" aria-hidden="true">
+      Animated confetti celebration
+    </canvas>
 
     <!-- Error Display -->
     <div class="error-display" id="errorDisplay"></div>
