@@ -15,42 +15,37 @@
    ============================================ */
 
 :root {
-    /* Colors */
-    --color-primary: #FF69B4;
-    --color-secondary: #FFD700;
-    --color-accent: #FF8C00;
-    --color-purple: #8A2BE2;
-    --color-cyan: #00FFFF;
-    --color-bg: #f7f7f7;
-    --color-card-bg: #ffffff;
-    --color-text-primary: #333333;
-    --color-text-secondary: #666666;
-    --color-shadow: rgba(0, 0, 0, 0.1);
-    --color-shadow-hover: rgba(0, 0, 0, 0.2);
-    --color-error: #e74c3c;
-    --color-success: #2ecc71;
+  /* Theme colors - will be set dynamically by JavaScript */
+  --color-primary: #D4AF37;
+  --color-secondary: #2C3E50;
+  --color-accent: #E8B4B8;
+  --color-background: #FEFEFE;
+  --color-text: #1A1A1A;
+  --color-text-light: #6B7280;
+  --color-error: #DC2626;
 
-    /* Fonts */
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Open Sans', sans-serif;
+  /* Fonts - will be set dynamically */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
 
-    /* Animation Durations */
-    --duration-fast: 200ms;
-    --duration-normal: 300ms;
-    --duration-slow: 500ms;
+  /* Animation durations */
+  --duration-fast: 0.2s;
+  --duration-normal: 0.4s;
+  --duration-slow: 0.8s;
 
-    /* Spacing */
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 1.5rem;
-    --spacing-lg: 2rem;
-    --spacing-xl: 3rem;
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
 
-    /* Border Radius */
-    --radius-sm: 8px;
-    --radius-md: 16px;
-    --radius-lg: 24px;
-    --radius-full: 50%;
+  /* Border radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 2rem;
+  --radius-full: 9999px;
 }
 
 /* ============================================
