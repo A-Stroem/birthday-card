@@ -586,38 +586,76 @@ body {
 
 /* Mobile: keep closed cover on one screen */
 @media (max-width: 767px) {
+    html,
+    body {
+        height: 100dvh;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
     .birthday-card {
         width: 100%;
-        margin: 0 auto;
-        padding: 0.5rem;
+        max-width: none;
+        min-height: 100dvh;
+        margin: 0;
+        padding: 0;
     }
 
     .card-stage {
         margin-bottom: 0;
+        min-height: 100dvh;
     }
 
     .card-book {
-        height: calc(100svh - 1rem);
-        min-height: 0;
+        height: 100dvh;
+        min-height: 100dvh;
         overflow: hidden;
+        border-radius: 0;
+        box-shadow: none;
     }
 
     .hero {
         min-height: 100%;
         padding: var(--spacing-lg) var(--spacing-sm);
+        border-radius: 0;
     }
 
     .card-actions {
         display: none;
     }
 
-    .card-book.is-open {
+    .card-cover {
+        border-radius: 0;
+    }
+
+    body.card-open-mobile {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    body.card-open-mobile .birthday-card {
+        min-height: auto;
+        padding: 0.5rem;
+    }
+
+    body.card-open-mobile .card-book {
         height: auto;
         min-height: 0;
         overflow: visible;
+        border-radius: var(--radius-lg);
+        box-shadow:
+            0 24px 40px rgba(44, 62, 80, 0.18),
+            0 0 0 1px rgba(255, 255, 255, 0.65) inset;
     }
 
-    .card-book.is-open + .card-actions {
+    body.card-open-mobile .hero,
+    body.card-open-mobile .card-cover {
+        border-radius: var(--radius-lg);
+    }
+
+    body.card-open-mobile .card-actions {
         display: block;
         margin-top: var(--spacing-sm);
     }

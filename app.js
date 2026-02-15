@@ -455,6 +455,9 @@ function setupCardInteraction(audioController) {
     cardToggleButtonEl.setAttribute("aria-expanded", String(isOpen));
     cardCoverEl.setAttribute("aria-hidden", String(isOpen));
 
+    const isMobileViewport = window.matchMedia("(max-width: 767px)").matches;
+    document.body.classList.toggle("card-open-mobile", isMobileViewport && isOpen);
+
     if (!wasOpen && isOpen && audioController) {
       audioController.attemptAutoplayOnOpen();
     }
@@ -467,6 +470,9 @@ function setupCardInteraction(audioController) {
   cardToggleButtonEl.addEventListener("click", () => {
     setCardState(!isCardOpen);
   });
+
+  // Initialize closed state for consistent mobile viewport locking and ARIA state.
+  setCardState(false);
 }
 
 // ========================================
