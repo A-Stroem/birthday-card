@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Birthday celebration card">
+  <title>Happy Birthday!</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Main Container -->
+  <main class="birthday-card">
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <!-- Norwegian Greeting (conditionally shown) -->
+      <div class="norwegian-greeting" id="norwegianGreeting"></div>
+
+      <!-- Name Display -->
+      <h1 class="name" id="name"></h1>
+
+      <!-- Age with 25th Milestone Badge -->
+      <div class="age-container">
+        <div class="age" id="age"></div>
+        <div class="milestone-badge" id="milestoneBadge"></div>
+      </div>
+
+      <!-- Photo -->
+      <div class="photo-container">
+        <div class="photo-frame">
+          <img id="photo" class="photo" alt="" />
+          <div class="photo-skeleton" id="photoSkeleton"></div>
+          <div class="photo-error" id="photoError"></div>
+        </div>
+      </div>
+
+      <!-- Birthday Message -->
+      <p class="message" id="message"></p>
+
+      <!-- Audio Player (conditionally shown) -->
+      <div class="audio-player" id="audioPlayer">
+        <button class="audio-button" id="audioButton">
+          <span class="audio-icon">♫</span>
+          <span class="audio-label" id="audioLabel"></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Confetti Canvas -->
+    <canvas class="confetti-canvas" id="confettiCanvas"></canvas>
+
+    <!-- Error Display -->
+    <div class="error-display" id="errorDisplay"></div>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="config.js"></script>
+  <script src="theme.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
