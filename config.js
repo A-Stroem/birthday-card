@@ -8,23 +8,22 @@
 
 const birthdayConfig = {
   // Required: Person's name
-  name: "Natalie",
+  name: "Gustav",
 
   // Required: Person's age
-  age: 25,
+  age: 26,
 
   // Required: Photo configuration
   photo: {
-    source: "assets/jackbox.png", // Can be local path or URL
-    alt: "Jackbox games",
+    source: "assets/twin-peaks.png", // Can be local path or URL
+    alt: "Twin Peaks: Fire Walk With Me – Criterion Collection",
   },
 
   // Optional: Birthday message
-  message: "Gratulerer med dagen og de 25 år!",
+message: "Tillykke med fødselsdagen og de 26 år! Twin Peaks er på vej!",
 
   // Optional: Handwritten-style note shown inside the opened card
-  insideNote:
-    "Gavekort: En valgfri Jackbox pakke til Nintendo Switch. Send blot en mobilepay anmodning når du har udvalgt den.\n\nHåber du får en fantastisk dag fyldt med glæde og god mad! 🎉🎂",
+  insideNote: "",
 
   // Optional: Audio configuration
   audio: {
@@ -34,9 +33,9 @@ const birthdayConfig = {
     label: "Play Birthday Song",
   },
 
-  // Optional: Norwegian touches
+  // Optional: Greeting with flag (flag emoji included in the string)
   norwegianTouch: {
-    enabled: true,
-    greeting: "Gratulerer med dagen!", // Norwegian "Happy Birthday"
+    enabled: false,
+    greeting: "🇩🇰 Tillykke med fødselsdagen!", // Danish "Happy Birthday"
   },
 };

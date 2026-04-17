@@ -62,9 +62,9 @@ body {
     font-family: var(--font-body);
     color: var(--color-text);
     background:
-        radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.2), transparent 40%),
-        radial-gradient(circle at 85% 15%, rgba(232, 180, 184, 0.2), transparent 35%),
-        linear-gradient(180deg, #fffaf2 0%, var(--color-background) 45%, #fff7fb 100%);
+        radial-gradient(circle at 20% 20%, rgba(139, 26, 26, 0.25), transparent 45%),
+        radial-gradient(circle at 80% 80%, rgba(92, 10, 10, 0.2), transparent 40%),
+        linear-gradient(180deg, #1a0507 0%, var(--color-background) 50%, #110305 100%);
     line-height: 1.6;
     min-height: 100vh;
     overflow-x: hidden;
@@ -91,8 +91,8 @@ body {
     min-height: 780px;
     transform-style: preserve-3d;
     box-shadow:
-        0 24px 40px rgba(44, 62, 80, 0.18),
-        0 0 0 1px rgba(255, 255, 255, 0.65) inset;
+        0 24px 60px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(201, 168, 76, 0.2) inset;
 }
 
 .card-cover {
@@ -106,10 +106,11 @@ body {
     transform: rotateY(0deg);
     transition: transform 7000ms cubic-bezier(0.14, 0.84, 0.18, 1);
     cursor: pointer;
-    color: var(--color-background);
+    color: var(--color-text);
     background:
-        linear-gradient(145deg, rgba(255, 255, 255, 0.18), transparent 50%),
-        linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+        linear-gradient(180deg, rgba(139, 26, 26, 0.35) 0%, transparent 60%),
+        linear-gradient(0deg, rgba(92, 10, 10, 0.4) 0%, transparent 50%),
+        linear-gradient(160deg, #3d0a0a 0%, #1a0507 40%, #0d0507 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -124,8 +125,19 @@ body {
     position: absolute;
     inset: 14px;
     border-radius: calc(var(--radius-lg) - 8px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(201, 168, 76, 0.35);
     pointer-events: none;
+}
+
+.card-cover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        repeating-linear-gradient(45deg, rgba(201, 168, 76, 0.04) 0px, rgba(201, 168, 76, 0.04) 1px, transparent 1px, transparent 14px),
+        repeating-linear-gradient(-45deg, rgba(201, 168, 76, 0.04) 0px, rgba(201, 168, 76, 0.04) 1px, transparent 1px, transparent 14px);
+    pointer-events: none;
+    border-radius: var(--radius-lg);
 }
 
 .cover-title {
@@ -167,21 +179,21 @@ body {
 }
 
 .card-toggle-button {
-    border: 0;
+    border: 1px solid rgba(201, 168, 76, 0.4);
     border-radius: var(--radius-full);
     background: var(--color-secondary);
-    color: #fff;
+    color: var(--color-text);
     padding: 0.65rem 1.4rem;
     font-weight: 600;
     font-size: 0.95rem;
     cursor: pointer;
     transition: transform var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
-    box-shadow: 0 8px 16px rgba(44, 62, 80, 0.22);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
 .card-toggle-button:hover {
     transform: translateY(-1px);
-    box-shadow: 0 10px 20px rgba(44, 62, 80, 0.28);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
 }
 
 /* ============================================
@@ -191,7 +203,10 @@ body {
 .hero {
     text-align: center;
     padding: var(--spacing-xl) var(--spacing-md);
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    background:
+        repeating-linear-gradient(45deg, rgba(201, 168, 76, 0.04) 0px, rgba(201, 168, 76, 0.04) 1px, transparent 1px, transparent 18px),
+        repeating-linear-gradient(-45deg, rgba(201, 168, 76, 0.04) 0px, rgba(201, 168, 76, 0.04) 1px, transparent 1px, transparent 18px),
+        linear-gradient(180deg, #1a0507 0%, #0d0507 100%);
     border-radius: var(--radius-lg);
     margin-bottom: 0;
     position: relative;
@@ -210,7 +225,7 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(201, 168, 76, 0.07) 0%, transparent 60%);
     animation: heroGlow 4s ease-in-out infinite;
 }
 
@@ -234,8 +249,8 @@ body {
     font-family: var(--font-heading);
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
-    color: var(--color-background);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    color: var(--color-primary);
+    text-shadow: 0 0 20px rgba(201, 168, 76, 0.4);
     margin-bottom: var(--spacing-sm);
     position: relative;
     z-index: 1;
@@ -245,17 +260,12 @@ body {
     display: block;
 }
 
-.norwegian-greeting.show::before {
-    content: '🇳🇴';
-    margin-right: var(--spacing-xs);
-    font-size: 1.2em;
-}
 
 .name {
     font-family: var(--font-heading);
     font-size: clamp(1.5rem, 4vw, 2rem);
     font-weight: 600;
-    color: var(--color-background);
+    color: var(--color-text);
     margin-bottom: var(--spacing-md);
     position: relative;
     z-index: 1;
@@ -275,14 +285,15 @@ body {
     font-family: var(--font-heading);
     font-size: clamp(3rem, 8vw, 5rem);
     font-weight: 700;
-    color: var(--color-background);
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    color: var(--color-primary);
+    text-shadow: 0 0 24px rgba(201, 168, 76, 0.5);
     line-height: 1;
 }
 
 .milestone-badge {
     display: none;
-    background: var(--color-background);
+    background: rgba(201, 168, 76, 0.15);
+    border: 1px solid rgba(201, 168, 76, 0.4);
     color: var(--color-primary);
     padding: var(--spacing-xs) var(--spacing-sm);
     border-radius: var(--radius-sm);
@@ -326,18 +337,18 @@ body {
     margin: 0 auto var(--spacing-lg);
     width: min(92%, 520px);
     text-align: left;
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(26, 5, 7, 0.75);
     border-radius: var(--radius-md);
     padding: var(--spacing-sm) var(--spacing-md);
-    border: 1px solid rgba(44, 62, 80, 0.14);
-    box-shadow: 0 8px 20px rgba(31, 41, 55, 0.12);
+    border: 1px solid rgba(201, 168, 76, 0.25);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     position: relative;
     z-index: 1;
 }
 
 .inside-note-label {
     display: block;
-    color: var(--color-secondary);
+    color: var(--color-primary);
     font-weight: 600;
     font-size: 0.9rem;
 }
@@ -346,10 +357,10 @@ body {
     margin-top: 0.45rem;
     min-height: 2.25rem;
     color: var(--color-text);
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
     font-size: 1rem;
     line-height: 1.7;
-    font-style: italic;
+    font-style: normal;
     white-space: pre-line;
 }
 
@@ -399,7 +410,7 @@ body {
     display: none;
     width: 100%;
     height: 400px;
-    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background: linear-gradient(90deg, #1a0507 25%, #2a0a0f 50%, #1a0507 75%);
     background-size: 200% 100%;
     animation: skeleton-loading 1.5s ease-in-out infinite;
     border-radius: var(--radius-md);
@@ -543,7 +554,7 @@ body {
     transform: translateX(-50%);
     width: min(92%, 560px);
     z-index: 1000;
-    background: #fee;
+    background: #1a0507;
     border: 1px solid var(--color-error);
     border-radius: var(--radius-sm);
     padding: var(--spacing-md);
@@ -646,8 +657,8 @@ body {
         overflow: visible;
         border-radius: var(--radius-lg);
         box-shadow:
-            0 24px 40px rgba(44, 62, 80, 0.18),
-            0 0 0 1px rgba(255, 255, 255, 0.65) inset;
+            0 24px 60px rgba(0, 0, 0, 0.7),
+            0 0 0 1px rgba(201, 168, 76, 0.2) inset;
     }
 
     body.card-open-mobile .hero,

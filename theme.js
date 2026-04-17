@@ -6,21 +6,21 @@
  */
 
 const theme = {
-  name: "elegant-birthday",
+  name: "twin-peaks-red-room",
 
   colors: {
-    primary: "#D4AF37",      // Gold - milestone celebration
-    secondary: "#2C3E50",    // Deep blue-grey
-    accent: "#E8B4B8",       // Soft pink
-    background: "#FEFEFE",   // Off-white
-    text: "#1A1A1A",         // Almost black
-    textLight: "#6B7280",    // Grey for secondary text
+    primary: "#C9A84C",      // Warm gold / candlelight
+    secondary: "#8B1A1A",    // Deep crimson
+    accent: "#5C0A0A",       // Dark blood red
+    background: "#0D0507",   // Near-black with red undertone
+    text: "#F5E6D3",         // Cream
+    textLight: "#B8956A",    // Warm tan
     error: "#DC2626"         // Red for errors
   },
 
   fonts: {
     heading: "'Playfair Display', serif",
-    body: "'Inter', sans-serif"
+    body: "'Special Elite', cursive"
   },
 
   animations: {

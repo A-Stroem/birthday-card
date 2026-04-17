@@ -11,7 +11,7 @@ const MILESTONE_AGE = 25;
 const DEFAULT_BIRTHDAY_MESSAGE =
   "Wishing you a day filled with joy, laughter, and celebration!";
 const DEFAULT_INSIDE_NOTE =
-  "Hope this year is full of warmth, laughter, and moments worth remembering.";
+  "Håber du får en fantastisk dag og et vidunderligt år med masser af gode film og hygge!";
 let confettiManagerInstance = null;
 
 // ========================================
